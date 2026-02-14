@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#e6664c",
+        "background-light": "#f0f9f4",
+        "background-dark": "#211411",
+        "pastel-lavender": "#f3f0ff",
+        "pastel-blue": "#e0f2fe",
+        "pastel-peach": "#fff1e6",
+        "charcoal": "#333333",
+      },
+      fontFamily: {
+        "display": ["Manrope", "sans-serif"]
+      },
+      borderRadius: {
+        "DEFAULT": "1rem",
+        "lg": "2rem",
+        "xl": "3rem",
+        "full": "9999px"
+      },
+    },
+  },
+}
+</script>
+
+<title>Ghost Load Hunter - Project Overview</title>
+
+<style>
+body { min-height: max(884px, 100dvh); }
+</style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-charcoal antialiased">
+
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+
+<nav class="sticky top-0 z-10 flex items-center bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md p-4 justify-between">
+<div class="flex items-center gap-2">
+<button class="flex size-10 items-center justify-center rounded-full bg-white/50 hover:bg-white transition-colors shadow-sm">
+<span class="material-symbols-outlined text-charcoal">arrow_back</span>
+</button>
+</div>
+<h2 class="text-charcoal dark:text-white text-lg font-bold leading-tight tracking-tight flex-1 text-center">
+Invisible Energy Waste In Smart Infrastructure
+</h2>
+<div class="flex w-10 items-center justify-end">
+<button class="flex size-10 items-center justify-center rounded-full bg-white/50">
+<span class="material-symbols-outlined text-charcoal">more_vert</span>
+</button>
+</div>
+</nav>
+
+<main class="flex flex-col gap-6 px-4 pb-12 pt-4">
+
+<div class="space-y-2">
+<h1 class="text-charcoal dark:text-white text-[32px] font-bold leading-tight tracking-tight">
+Ghost Load Hunter
+</h1>
+<p class="text-charcoal/70 dark:text-white/70 text-base font-normal leading-relaxed">
+Identify hidden energy consumption and reduce waste with high-precision analytics.
+</p>
+</div>
+
+<section class="rounded-xl bg-pastel-lavender p-6 shadow-sm border border-[#e9e3ff]">
+<div class="flex items-center gap-3 mb-4">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#8b5cf6]">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<h3 class="text-charcoal text-xl font-bold">App Overview</h3>
+</div>
+</section>
+
+<!-- FORM START -->
+<form action="/analyze" method="POST" enctype="multipart/form-data">
+
+<section class="rounded-xl bg-white dark:bg-zinc-900 p-6 shadow-[0_10px_30px_rgba(255,190,152,0.25)] border border-white">
+
+<div class="mb-6">
+<p class="text-primary text-xs font-bold uppercase tracking-widest mb-1">Step 2</p>
+<h3 class="text-charcoal dark:text-white text-xl font-bold">Upload Center</h3>
+<p class="text-charcoal/60 dark:text-white/60 text-sm">Supported formats: .CSV, .XLSX</p>
+</div>
+
+<div
+  id="uploadBox"
+  class="group relative flex flex-col items-center justify-center rounded-xl border-2 border-dashed border-[#bae6fd] bg-pastel-blue/30 py-10 transition-all hover:bg-pastel-blue/50"
+>
+
+<div class="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-white shadow-sm transition-transform group-hover:scale-110">
+<span id="uploadIcon" class="material-symbols-outlined text-[#0ea5e9] text-3xl">
+cloud_upload
+</span>
+</div>
+
+<div class="text-center">
+<p id="uploadTitle" class="text-charcoal font-semibold">
+Drop your energy data here
+</p>
+<p id="uploadSubtitle" class="text-charcoal/50 text-xs mt-1">
+or tap to browse files
+</p>
+</div>
+
+<input
+  id="fileInput"
+  type="file"
+  name="file"
+  accept=".csv,.xlsx"
+  required
+  class="absolute inset-0 cursor-pointer opacity-0"
+/>
+
+</div>
+
+<button
+  type="submit"
+  class="mt-8 flex w-full items-center justify-center gap-2 rounded-full bg-primary py-4 text-white shadow-lg shadow-primary/30 transition-all hover:brightness-110 active:scale-95">
+<span class="font-bold tracking-wide">Analyze Data</span>
+<span class="material-symbols-outlined text-xl">auto_awesome</span>
+</button>
+
+</section>
+</form>
+<!-- FORM END -->
+
+</main>
+
+<div class="h-10"></div>
+</div>
+
+<!-- ✅ SCRIPT THAT FIXES YOUR ISSUE -->
+<script>
+const fileInput = document.getElementById("fileInput");
+const uploadTitle = document.getElementById("uploadTitle");
+const uploadSubtitle = document.getElementById("uploadSubtitle");
+const uploadIcon = document.getElementById("uploadIcon");
+
+fileInput.addEventListener("change", () => {
+  if (fileInput.files.length > 0) {
+    uploadTitle.textContent = "✅ File uploaded";
+    uploadSubtitle.textContent = fileInput.files[0].name;
+    uploadIcon.textContent = "check_circle";
+    uploadIcon.classList.remove("text-[#0ea5e9]");
+    uploadIcon.classList.add("text-green-500");
+  }
+});
+</script>
+
+</body>
+</html>
